@@ -61,66 +61,69 @@ class HomePage extends StatelessWidget {
           child: Text('Mapping List'),
         ),
       ),
-      body: ListView(
-          children: myList.map((data) {
-        List myFavColor = data['favColor'];
-        return Card(
-          elevation: 2,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    const CircleAvatar(),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 8),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Nama\t: ${data['nama']}',
-                            style: const TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
-                          Text(
-                            'Umur\t: ${data['age']}',
-                            style: const TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
-                        ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView(
+            children: myList.map((data) {
+          List myFavColor = data['favColor'];
+          return Card(
+            elevation: 2,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      const CircleAvatar(),
+                      const SizedBox(
+                        width: 20,
                       ),
-                    )
-                  ],
-                ),
-                Row(
-                  children: myFavColor.map((color) {
-                    return Container(
-                      margin: const EdgeInsets.only(right: 8),
-                      padding: const EdgeInsets.all(5),
-                      child: Text(
-                        color,
-                        style: const TextStyle(
-                          color: Colors.white,
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 8),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Nama\t: ${data['nama']}',
+                              style: const TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                            Text(
+                              'Umur\t: ${data['age']}',
+                              style: const TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    );
-                  }).toList(),
-                ),
-              ],
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: myFavColor.map((color) {
+                      return Container(
+                        margin: const EdgeInsets.only(right: 8),
+                        padding: const EdgeInsets.all(5),
+                        child: Text(
+                          color,
+                          style: const TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ],
+              ),
             ),
-          ),
-        );
-      }).toList()),
+          );
+        }).toList()),
+      ),
     );
   }
 }
