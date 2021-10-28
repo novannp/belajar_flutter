@@ -16,9 +16,9 @@ class MyApp extends StatelessWidget {
         '/secondScreen': (context) => const SecondScreen(),
         '/secondScreenWithData': (context) => SecondScreenWithData(
             ModalRoute.of(context)?.settings.arguments as String),
-        '/returnDataScreen': (context) => ReturnDataScreen(),
-        '/replacementScreen': (context) => ReplacementScreen(),
-        '/anoterScreen': (context) => AnotherScreen(),
+        '/returnDataScreen': (context) => const ReturnDataScreen(),
+        '/replacementScreen': (context) => const ReplacementScreen(),
+        '/anotherScreen': (context) => const AnotherScreen(),
       },
     );
   }
@@ -166,6 +166,8 @@ class _ReturnDataScreenState extends State<ReturnDataScreen> {
 }
 
 class ReplacementScreen extends StatelessWidget {
+  const ReplacementScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -182,6 +184,8 @@ class ReplacementScreen extends StatelessWidget {
 }
 
 class AnotherScreen extends StatelessWidget {
+  const AnotherScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -191,7 +195,7 @@ class AnotherScreen extends StatelessWidget {
           children: <Widget>[
             const Text('Back to First Screen'),
             ElevatedButton(
-              child: Text('Back'),
+              child: const Text('Back'),
               onPressed: () {
                 Navigator.pop(context);
               },
